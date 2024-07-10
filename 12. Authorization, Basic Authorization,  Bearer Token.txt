@@ -1,0 +1,23 @@
+Lecture link: https://www.youtube.com/watch?v=6_cx8qRWEo0&list=PLnNg6KqJ3HGiMMhPYMqzRUrJu_hvgy4Eo&index=12
+
+*********** What is Authentication and Authorization
+
+For example:A employee first need to access a office and then will be able to get access of specific stuff
+
+Authentication is like "Who you are" 	(Need to prove you are the employer)
+Authorization is like "What you can do"	(What permission you have to do in the office)
+
+
+******* Basic Authorization ******
+For Basic Authorization we need "Username" and "Password" 
+From the "Auth Type" section need to select "Basic Auth"
+
+****** Bearer Authorization ******
+For Bearer Authorization we need the "Token"
+From the "Auth Type" section, need to select "Bearer Token"
+
+
+
+
+
+

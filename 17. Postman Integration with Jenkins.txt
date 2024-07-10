@@ -1,0 +1,24 @@
+Lecture Link: https://www.youtube.com/watch?v=ZF3UVoH7jfU&list=PLnNg6KqJ3HGiMMhPYMqzRUrJu_hvgy4Eo&index=17
+
+******** Create a Jenkin job **********
+In Jenkins, new project called "job"
+-> Create a job by clicking on "New item" menu.
+-> Set the "Job Name"
+-> Select "Freestyle project"
+-> Then "Ok" and will take to the "General" dashboard
+
+On the "General" dashboard folow below steps:
+-> Put some description (Optional)
+-> Select "Provide Node & npm bin/ folder to PATH" from the "Build Environment" section
+-> "Add build step" --> "Execute Windows batch command"  (From the "Build Steps" section)
+-> Write the Newman commands in the "Command" box which we usually write in "CMD" for Newman
+-> "Apply" --> "Save"
+
+
+-> Go the the "Job" from the Jenkins dashboard and run "Build Now"
+-> Open the last "Build" from the Build History --> Go to "Consol Output" --> View as plain text (To see the execution result)
+
+
+
+N.B: If "Newman" do not recgonize by the "Jenkin Command line" See the solution here
+https://www.youtube.com/watch?v=mZGS-DFOJ8c

@@ -1,0 +1,26 @@
+Lecture Link: https://www.youtube.com/watch?v=1Ft9Sbo3aqs&list=PLnNg6KqJ3HGiMMhPYMqzRUrJu_hvgy4Eo&index=18
+
+********** XML report generat, video till 22 minutes ************
+Configuration is same as for "HTML report"
+Use this code
+	--> newman run C:\\Users\\AR\\Desktop\\Collection1.postman_collection.json --reporters cli,junit --reporter-junit-export "report/newmanreport.xml"
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+********** HTML report generat, video From 23 minutes ************
+--> We need to install "HTML Publisher Plugin" to generate HTML reports
+
+-> Go to "Manage Jenkins" -> Manage Plugins -> HTML Publisher install
+
+-> Open the "Jenkin Job" which reports we want to generate 
+-> Go to "Configure" --> "Build Steps"  --> Add this code after newman code (--reporters cli,junit,htmlextra --reporter-htmlextra-export "report/newmanreport_htmlextra.html")
+	-> Example of code: newman run C:\\Users\\AR\\Desktop\\Collection1.postman_collection.json --reporters cli,junit,htmlextra --reporter-htmlextra-export "report/newmanreport_htmlextra.html"
+-> Go to "Add post-build action" and select "Publish HTML reports"
+-> "Add" Reports and fill the data
+	-> report	(For directory to archive) (This directory name should be same as mentioned in the directory above)
+	-> newpostmanreport.html	(For Index page)
+-> Apply --> Save
+-> Build Now --> Workspace --> "Report" folder --> Open the file (To see the proper HTML Layout, Download the file)
+
+

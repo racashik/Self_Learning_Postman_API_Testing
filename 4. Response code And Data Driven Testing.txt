@@ -1,0 +1,35 @@
+Lecture video: https://www.youtube.com/watch?v=h7J9yGbwSeQ&list=PLnNg6KqJ3HGiMMhPYMqzRUrJu_hvgy4Eo&index=4
+
+Here we want to create a "Post" request so that can add more Person details
+For each details, will add "Name" and "Job" information
+Will add the data from a "Csv" file so put multiple data into a CSV file
+
+--> Now Create a "New Collection"
+--> Make a HTTP "Post" request
+--> Insert the "URL"
+--> Write the following code into "Body" -> Row section
+	{
+		"name": "{{name}}"	// "{{name}}" it's the label of the CSV file
+		"job": "{{job}}"	// "{{job}}" it's the label of the CSV file
+	}
+
+--> For checking the "Status" code write the following code into the "Scripts-> Post-req" menu
+	pm.test("Status code is 201", function () {
+    		pm.response.to.have.status(201);
+	});
+
+N.B: We can directly get the code from the induild code section which mentioned as 
+"Status code: Code is 200"
+
+--> Go to "Run Collection" dashboard. 
+--> Select "Run Manually"
+--> Upload the "Cas" file and "Run"
+
+It will show the result in description.
+
+
+
+
+
+
+

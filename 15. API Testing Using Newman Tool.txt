@@ -1,0 +1,84 @@
+Lecture link: https://www.youtube.com/watch?v=8nDZ6seDQEA&list=PLnNg6KqJ3HGiMMhPYMqzRUrJu_hvgy4Eo&index=15
+
+********* What is Newman **********
+
+Newmas is the CLI(Command Line Interface) tool of PostMan. 
+We use Newman to execute Collection when do not have the Postman Interface.
+We need it for "Continious Integration".
+
+
+Requirementfor Newman installation:
+1. Node JS
+2. NPM
+
+
+After installation, check Node JS and Npm version from Command Prompt by
+node --version
+npm --version
+
+
+******** Now install "Newman" form the same command prompt by **********
+npm install -g newman
+newman -v	(To check installed Newman Vesrion)
+
+
+
+*********** Run Postman collection/project through Newman *************
+-> First Export the collection file by clicking on the "Export" option. It save in "Json" file
+-> Locate your command prompt where the "Json" file has i.e: if it has in desktop the type (cd desktop) on CMD
+-> newman run "Json file name"  (Here use the json file full name with the Json extension)
+	i.e: newman run Collection1.postman_collection.json
+
+It will run the Postman collection file.
+
+
+
+******* If there has any Global/Environment variable that need for the Collection file ******** 
+If we use any Globar variable or Environment variable to the collection request, we also need those variable value.
+So we also have to "Export" those Globar/Environment files and run together with the Collection file.
+
+
+
+
+********** If we need to run Environment variable, use following structure ***********
+
+newman run "Collection Json file name" e- "Environment extension file name"	(Here "e-" stands for Environment)
+	-> newman run Collection1.postman_collection.json e- QA.postman_environment.json
+
+
+
+
+********** If we need to run Global variable, use following structure ***********
+
+newman run "Collection Json file name" g- "Global extension file name"	(Here "g-" stands for Global)
+	-> newman run Collection1.postman_collection.json g- workspace.postman_globals.json
+
+
+
+
+********** If we need to run Environment & Global variable together, use following structure ***********
+
+newman run "Collection Json file name" e- "Environment extension file name" g- "Global extension file name"
+	-> newman run Collection1.postman_collection.json e- QA.postman_environment.json g- workspace.postman_globals.json
+
+
+
+
+********** If we need to run Data Driven with data folder, use following structure ***********
+
+newman run "Collection Json file name" d- "Data file name"	(Here "d-" stands for Data Driven)
+	-> newman run DataDrivenTesting.postman_collection.json d- 4.1 PostmanApiTestingData.csv
+
+
+********** If need to mention "Iteration time" use following structure
+
+newman run "Collection Json file name" d- "Data file name" -n 3	(Here "n-" stands for Number of Iteration) (And 3 mention the Iteration number)
+	-> newman run DataDrivenTesting.postman_collection.json d- 4.1 PostmanApiTestingData.csv -n 3
+
+
+
+********* For Delay requested time, use following code (This time works between two iteration **********
+	-> newman run DataDrivenTesting.postman_collection.json d- 4.1 PostmanApiTestingData.csv -n 3 --delay-request 5000
+
+Here time mention in mili-seconds
+

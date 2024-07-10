@@ -1,0 +1,26 @@
+Lecture link: https://www.youtube.com/watch?v=2HB8eKKYha0&list=PLnNg6KqJ3HGiMMhPYMqzRUrJu_hvgy4Eo&index=16
+
+*********** Generate Basic Newman HTML Report ************
+1) Install Newman tool
+2) Install newman reporter (Command line code is following "Type it on the CMD")
+	-> npm i -g newman-reporter-html
+3) Run collection and use "-r html" at the end to generate Basic HTML report
+	-> newman run DataDrivenTesting.postman_collection.json d- 4.1 PostmanApiTestingData.csv -r html
+
+After run the command, a folder will be generated, where will have a html file of the report.
+
+
+
+
+
+*********** Generate advance Newman HTML Report ************
+1) Install newman reporter (Command line code is following "Type it on the CMD")
+	-> npm i -g newman-reporter-htmlextra
+
+2) Run collection and use "-r htmlextra" at the end to generate Advance HTML report
+	-> newman run DataDrivenTesting.postman_collection.json d- 4.1 PostmanApiTestingData.csv -r htmlextra
+
+
+
+
+

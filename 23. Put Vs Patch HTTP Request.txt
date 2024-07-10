@@ -1,0 +1,75 @@
+Lecture Link: https://www.youtube.com/watch?v=A7pHsuzHG7w&list=PLnNg6KqJ3HGiMMhPYMqzRUrJu_hvgy4Eo&index=23
+
+
+*********** Put VS Patch Http request **************
+
+Put request: Set all new attributes for an existing resource.  Put sends entire body.
+
+Patch request: Partially update an existing resource (Not all attributes required).
+
+
+For example, we have the following code in the database that will update with "Put" and "Patch"
+{
+	"id": 1,
+	"name": "Ashik",
+	"age": 28,
+	"title": "SQA",
+	"Country": "BD"
+}
+
+---------------------------------------------------------------
+
+Now if we pudate above data with "Put" request where
+Put request code:
+{
+	"id": 1,
+	"name": "Hasan",
+	"age": 30
+}	
+
+Updated data will be with only 3 attributes as following:
+{
+	"id": 1,
+	"name": "Hasan",
+	"age": 30
+}
+
+
+
+---------------------------------------------------------------
+
+Now if we pudate above example data with "Patch" request where
+Put request code:
+{
+	"id": 1,
+	"name": "Manik",
+	"age": 19
+}	
+
+Updated data will be with all attributes as following:
+{
+	"id": 1,
+	"name": "Manik",
+	"age": 19,
+	"title": "SQA",
+	"Country": "BD"
+}
+
+Here only the mentioned attributes value will be updated. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+******  For making 1 increment every time for the local "id" variable ******
+
+var idno = pm.collectionVariables.get("id");
+idno = parseInt(idno)+1;
+pm.collectionVariables.set("id",idno);
+
+
+
+
+******  For storing dynamin Token to the local "token" variable ******
+
+var myToken = pm.response.json()["token"];
+pm.collectionVariables.set("token", myToken);
+
+
+
+

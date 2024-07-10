@@ -1,0 +1,15 @@
+Lecture link: https://www.youtube.com/watch?v=E9iMUZq2zlw&list=PLnNg6KqJ3HGiMMhPYMqzRUrJu_hvgy4Eo&index=8
+
+We can use "Dynamic random variable" which generate random value.
+Dynamic inbuild variable starts with "$" sign i.e: {{$randomFirstName}}
+
+Below has a sample of use of Dynamic Variable
+
+{
+    "name": "{{$randomFirstName}}",
+    "job": "{{$randomJobTitle}}"
+}
+
+
+
+N.B: In this tutorial, also has explained the "Test Script inbuild template"

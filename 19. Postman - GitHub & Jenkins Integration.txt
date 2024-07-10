@@ -1,0 +1,56 @@
+Lecture Link: https://www.youtube.com/watch?v=GHAWUQAPNVs&list=PLnNg6KqJ3HGiMMhPYMqzRUrJu_hvgy4Eo&index=19
+
+********** GitHub & Jenkins Integration ***********
+
+------------> First Export the Collection file from Postman <---------------
+
+-> Add those file into a local Git repository
+	-> git init
+	-> git commit -m "first commit"
+-> Push those file into Github repositiry
+	-> git remote add origin https://github.com/racashik/PostmanJenkinIntegrationPractice.git
+	-> git push -u origin main
+
+
+
+
+------------> Connect Jenkins with Github <---------------
+
+-> Create a new job in Jenkins from "New Item"
+-> Enter an item name --> Select "Freestyle project" --> Ok
+
+---------- On the "Configure" dashboard, make following steps -----------
+-> Go to "Source Code Management" section
+-> Select "Git" --> Insert Github repository URL (Copy from the GitHub)
+	-> Check "Branch Specifier" field value, it should be (*/main OR */master according to github branch)
+-> Go to "Build Environment" and select "Provide Node & npm bin/ folder to PATH"
+	-> Locate "NodeJS Installation" 
+-> Go to "Build Steps" Section  --> Select "Execute Windows batch command" --> Insert "Newman command"
+	-> Code example: newman run Collection1.postman_collection.json  (Here Json file name should be same as it is in Github)
+-> Apply  --> Save
+
+Now Run the Build and see the result.
+
+
+
+
+
+********** HTML report generat, video From 23 minutes ************
+Video Link: https://www.youtube.com/watch?v=1Ft9Sbo3aqs&list=PLnNg6KqJ3HGiMMhPYMqzRUrJu_hvgy4Eo&index=18
+
+
+--> We should have installed "HTML Publisher Plugin" to generate HTML reports
+-> Go to "Manage Jenkins" -> Manage Plugins -> HTML Publisher install
+
+-> Open the "Jenkin Job" which reports we want to generate 
+-> Go to "Configure" --> "Build Steps"  --> Add this code after newman code (--reporters cli,junit,htmlextra --reporter-htmlextra-export "report/newmanreport_htmlextra.html")
+	-> Example of code: newman run Collection1.postman_collection.json --reporters cli,junit,htmlextra --reporter-htmlextra-export "report/newmanreport_htmlextra.html"
+-> Go to "Post-build action" section
+	-> Go to "Add post-build action" and select "Publish HTML reports"
+	-> "Add" Reports and fill the data
+		-> report	(For directory to archive) (This directory name should be same as mentioned in the directory above)
+		-> newpostmanreport.html	(For Index page)
+-> Apply --> Save
+-> Build Now --> Workspace --> "Report" folder --> Open the file (To see the proper HTML Layout, Download the file)
+
+

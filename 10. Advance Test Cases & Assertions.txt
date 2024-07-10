@@ -1,0 +1,68 @@
+Lecture link: https://www.youtube.com/watch?v=AYmMr8sdO5Y&list=PLnNg6KqJ3HGiMMhPYMqzRUrJu_hvgy4Eo&index=10
+
+We can find the "Json" code path using this website : https://jsonpathfinder.com/
+Here just paste the Json cond and get the path of that data
+
+For example: Below has the Json code
+
+{
+    "page": 2,
+    "per_page": 6,
+    "total": 12,
+    "total_pages": 2,
+    "data": [
+        {
+            "id": 7,
+            "email": "michael.lawson@reqres.in",
+            "first_name": "Michael",
+            "last_name": "Lawson",
+            "avatar": "https://reqres.in/img/faces/7-image.jpg"
+        },
+        {
+            "id": 8,
+            "email": "lindsay.ferguson@reqres.in",
+            "first_name": "Lindsay",
+            "last_name": "Ferguson",
+            "avatar": "https://reqres.in/img/faces/8-image.jpg"
+        }
+    ]
+}
+
+
+
+Here we need to find the path of "id which is in the first index of data"
+Path is: x.data[0].id  (Here for the value "X" we will use the response variable name)
+
+
+
+
+*********** Below making an assertion ***************
+
+pm.test("Your test name", function () {
+    var jsonData = pm.response.json();       	// Here storing the Json data into the "jsonData" variable
+    pm.expect(jsonData.data[0].id).to.eql(7); 	// Here matching the Exact and Expected data
+});
+
+
+N.B: Above "jsonData" variable has full Json data and we mentioned the exact path of "id" by
+using the "Jsonpathfinder"
+
+
+
+
+
+***************** Store dynamic value in a Global variable ***************
+
+var jsonData = pm.response.json();	  // Storing all Json data into the "jsonData" variable by Get request
+pm.globals.set("orderId", jsonData.uuid); // "orderId" is the Global variable name and the value storing by "jsonData.uuid" 
+
+
+
+
+
+
+
+
+
+
+
